@@ -1,0 +1,16 @@
+service: serverless-simple-bridge
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+functions:
+  main:
+    handler: dist/main.handler
+    events:
+      - http:
+          method: POST
+          path: /on-game-finished
